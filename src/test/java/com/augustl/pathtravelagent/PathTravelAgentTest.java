@@ -523,6 +523,14 @@ public class PathTravelAgentTest {
         assertEquals(new TestRes("Hello, foo with id abc123"), match(r, new TestReq("/foo/abc123")));
     }
 
+    @Test(expected = NullPointerException.class)
+    public void testNullMerging() {
+        RouteTreeNode<TestReq, TestRes> r = new SingleRouteBuilder<TestReq, TestRes>()
+            .build(new TestHandler("Hello, and null!"));
+
+        r.merge(null);
+    }
+
     @Test
     public void handlerMerging() {
         class MethodReq implements IRequest {
