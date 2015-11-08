@@ -24,7 +24,7 @@ class DefaultRouteMatcher<T_REQ : IRequest, T_RES> {
             }
 
             if (targetNode.hasParametricChild()) {
-                if (!routeMatchResult.addParametricSegment(targetNode.parametricChildSegment, pathSegment)) {
+                if (!routeMatchResult.addParametricSegment(targetNode.parametricChildSegment!!, pathSegment)) {
                     return null
                 }
                 targetNode = targetNode.parametricChildNode
@@ -46,7 +46,7 @@ class DefaultRouteMatcher<T_REQ : IRequest, T_RES> {
         }
 
         if (targetNode != null && targetNode.handler != null) {
-            return targetNode.handler.call(RouteMatch(req, routeMatchResult))
+            return targetNode.handler!!.call(RouteMatch(req, routeMatchResult))
         }
 
         return null
