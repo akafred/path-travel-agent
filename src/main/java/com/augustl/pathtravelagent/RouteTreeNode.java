@@ -117,6 +117,7 @@ public class RouteTreeNode<T_REQ extends IRequest, T_RES> {
      * @see com.augustl.pathtravelagent.IRouteHandler#merge
      */
     public RouteTreeNode<T_REQ, T_RES> merge(RouteTreeNode<T_REQ, T_RES> other) {
+        if (other == null) throw new NullPointerException("Cannot merge when 'other == null'.");
         return merge(other, new ArrayList<String>());
     }
 
