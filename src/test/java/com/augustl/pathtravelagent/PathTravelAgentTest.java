@@ -5,8 +5,8 @@ import org.junit.Test;
 
 import java.util.*;
 
-import static org.junit.Assert.*;
-import static com.augustl.pathtravelagent.DefaultRouteMatcher.*;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNull;
 
 public class PathTravelAgentTest {
     private DefaultRouteMatcher<TestReq, TestRes> defaultRouteMatcher = new DefaultRouteMatcher<TestReq, TestRes>();
@@ -44,6 +44,16 @@ public class PathTravelAgentTest {
 
         assertEquals(match(r, new TestReq("/foo")), new TestRes("Hello, foo!"));
         assertEquals(match(r, new TestReq("/bar")), new TestRes("Hello, bar!"));
+    }
+
+    @Test
+    public void nullHandlerIsOk() {
+        RouteTreeNode<TestReq, TestRes> r = rf.builder()
+                .path("/baz", rf.builder()
+                        .handler(null))
+                .build();
+
+        assertEquals(match(r, new TestReq("/baz")), null);
     }
 
     @Test
