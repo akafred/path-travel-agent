@@ -22,6 +22,6 @@ class TestReq implements IRequest {
 
     @Override
     public List<String> getPathSegments() {
-        return DefaultPathToPathSegments.parse(this.path);
+        return DefaultPathToPathSegments.INSTANCE.parse(this.path);
     }
 }

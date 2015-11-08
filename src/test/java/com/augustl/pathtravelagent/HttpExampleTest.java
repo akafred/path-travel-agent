@@ -64,7 +64,7 @@ public class HttpExampleTest {
 
         public HttpReq(String httpMethod, String path) {
             this.httpMethod = httpMethod;
-            this.pathSegments = DefaultPathToPathSegments.parse(path);
+            this.pathSegments = DefaultPathToPathSegments.INSTANCE.parse(path);
         }
 
         public String getHttpMethod() {

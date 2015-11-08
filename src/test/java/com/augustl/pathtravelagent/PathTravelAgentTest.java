@@ -520,7 +520,7 @@ public class PathTravelAgentTest {
             private final List<String> pathSegments;
             public MethodReq(String method, String path) {
                 this.method = method;
-                this.pathSegments = DefaultPathToPathSegments.parse(path);
+                this.pathSegments = DefaultPathToPathSegments.INSTANCE.parse(path);
             }
 
             @Override
