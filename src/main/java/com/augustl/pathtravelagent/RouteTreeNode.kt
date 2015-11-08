@@ -100,15 +100,13 @@ class RouteTreeNode<T_REQ : IRequest, T_RES> {
      * handler at a given point in the tree, the merge method is called on the source handler, getting the target
      * handler passed in. The details of how this merge takes place is up to the user, no default implementation is
      * provided.
-
      *
      * The other elements such as parametric routes and wildcard routes are automatically merged and can not be
      * configured by the user.
-
+     *
      * @param other The (immutable) node to merge with
-     * *
      * @return The new (immutable) node
-     * *
+     *
      * @see com.augustl.pathtravelagent.IRouteHandler.merge
      */
     fun merge(other: RouteTreeNode<T_REQ, T_RES>?): RouteTreeNode<T_REQ, T_RES> {

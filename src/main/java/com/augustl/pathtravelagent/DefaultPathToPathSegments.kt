@@ -1,7 +1,6 @@
 package com.augustl.pathtravelagent
 
 /**
- *
  * Default implementation of path to path segments, i.e. "/projects/123?test" to ["project", "123"].
  */
 object DefaultPathToPathSegments {
