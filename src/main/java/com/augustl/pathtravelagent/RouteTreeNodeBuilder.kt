@@ -13,7 +13,7 @@ internal class RouteTreeNodeBuilder<T_REQ : IRequest, T_RES> {
     private var parametricChild: ParametricChild<T_REQ, T_RES>? = null
     private var wildcardChild: RouteTreeNode<T_REQ, T_RES>? = null
 
-    fun setHandler(handler: IRouteHandler<T_REQ, T_RES>) {
+    fun setHandler(handler: IRouteHandler<T_REQ, T_RES>?) {
         this.handler = handler
     }
 

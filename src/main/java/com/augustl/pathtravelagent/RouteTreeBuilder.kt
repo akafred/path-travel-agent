@@ -30,7 +30,7 @@ class RouteTreeBuilder<T_REQ : IRequest, T_RES> {
     private val paramNamePrefix = "/:"
     private val nodeBuilder = RouteTreeNodeBuilder<T_REQ, T_RES>()
 
-    fun handler(handler: IRouteHandler<T_REQ, T_RES>): RouteTreeBuilder<T_REQ, T_RES> {
+    fun handler(handler: IRouteHandler<T_REQ, T_RES>?): RouteTreeBuilder<T_REQ, T_RES> {
         nodeBuilder.setHandler(handler)
         return this
     }
